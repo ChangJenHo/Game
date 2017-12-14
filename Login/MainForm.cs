@@ -1,4 +1,5 @@
-﻿using Game.Network;
+﻿using Game.DataBase;
+using Game.Network;
 using Game.Network.Email;
 using Game.Network.JSON;
 using System;
@@ -15,6 +16,7 @@ namespace Login
     public partial class MainForm : Form
     {
         public TcpSvr ts;
+        public MsSql mssql;
         public MainForm()
         {
             InitializeComponent();
@@ -297,8 +299,8 @@ namespace Login
                     //String[] AA = Game.Network.Information.IPLocal();
                     ErrorCord = C2S_Login_SQL(account, CheckPassword, password);
 
-                    PlayID = "00000001";
-
+                    PlayID = MsSql.VarPool["id"].ToString();
+                    Photo = Game.Network.Coder.BytesToHex((Byte[])MsSql.VarPool["Photo"]);
                     GaneServer = String.Format("192.168.0.149:8001");
 
                     Datagram = "{\"Function\":\"S2C_Login\",\"PlayID\":\"";
@@ -339,6 +341,18 @@ namespace Login
         public String C2S_Login_SQL(String account, Boolean CheckPassword, String password)
         {
             String ReturnString = "00000000";
+            try
+            {
+                String CommandString = String.Format("select id,Mail, Photo from Account WHERE Mail='{0}' AND Password='{1}'", account, password);
+                mssql.MsSelect(Login.Properties.Resources.ZLabSDBTestEntities, CommandString, new string[] { "id", "Mail", "Photo" });
+                //String id = MsSql.VarPool["id"].ToString();
+                //String Mail = MsSql.VarPool["Mail"].ToString();
+                //String Photo = Game.Network.Coder.BytesToHex((Byte[])MsSql.VarPool["Photo"]);
+            }
+            catch (Exception ex)
+            {
+                ReturnString = Convert.ToString(ex.GetHashCode());
+            }
             return ReturnString;
         }
         public String C2S_Registered_SQL(String Data)
@@ -373,6 +387,7 @@ namespace Login
                 this.Text += "] ";}
 
             }
+            mssql = new MsSql();
         }
     }
     public class RootObject

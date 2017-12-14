@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,6 +11,7 @@ namespace Game.DataBase
 {
     public class MsSql
     {
+        public static Hashtable VarPool = new Hashtable();
         private bool disposed = false;
         public String ErrorMessing = String.Empty;
         public MsSql()
@@ -121,25 +123,35 @@ namespace Game.DataBase
                 return false;
             }
         }
-        public void MsSelect(String ConnectionString, String CommandString)
+        public Boolean MsSelect(String ConnectionString, String CommandString, String[] CSA)
         {
-            //try
-            //{
-            //    SqlConnection Connection = new SqlConnection(ConnectionString);
-            //    Connection.Open();
-            //    SqlCommand Command = new SqlCommand(CommandString, Connection);
-            //    Command.ExecuteNonQuery();
+            try
+            {
+                SqlConnection Connection = new SqlConnection(ConnectionString);
+                Connection.Open();
+                SqlCommand Command = new SqlCommand(CommandString, Connection);
+                SqlDataReader myDataReader = Command.ExecuteReader();               
+                VarPool.Clear();
+                while (myDataReader.Read())
+                {
+                    foreach (String Scsa in CSA)
+                    {
+                        if (myDataReader[Scsa].ToString() != "")
+                        {
+                            VarPool[Scsa] = myDataReader[Scsa];
+                        }
+                    }
+                }
+                Command.Cancel();
+                Connection.Close();
+                Connection.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
 
-            //    Command.Cancel();
-            //    Connection.Close();
-            //    Connection.Dispose();
-            //    return true;
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    return false;
-            //}
+                return false;
+            }
         }
     }
 }

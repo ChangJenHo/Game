@@ -129,7 +129,7 @@ namespace Game.Network
                     }
             }
         }
-        public byte[] HexToBytes(string hex)
+        public static byte[] HexToBytes(string hex)
         {
             MatchCollection mc = Regex.Matches(Regex.Replace(hex, @"[^a-zA-Z0-9]+", ""), @"([a-zA-Z0-9]{2})");
             byte[] bytes = new byte[mc.Count];
@@ -137,11 +137,15 @@ namespace Game.Network
                 bytes[i] = Convert.ToByte(mc[i].Value, 16);
             return bytes;
         }
-        public string BytesToHex(byte[] ba, int length)
+        public static string BytesToHex(byte[] ba)
+        {
+            return BytesToHex(ba, 0, ba.Length);
+        }
+        public static string BytesToHex(byte[] ba, int length)
         {
             return BytesToHex(ba, 0, length);
         }
-        public string BytesToHex(byte[] ba, int start, int length)
+        public static string BytesToHex(byte[] ba, int start, int length)
         {
             byte[] tempb = MakeArray(ba, start, length);
             int len = 0;
@@ -160,7 +164,7 @@ namespace Game.Network
             });
             return string.Join("", hexstrs).TrimEnd(separator.ToCharArray()).Replace(" ","").Replace("\n", "");
         }
-        public byte[] MakeArray(byte[] by, int start, int length)
+        public static byte[] MakeArray(byte[] by, int start, int length)
         {
             if (start < 0) start = 0;
             if (length < 0) length = 0;
