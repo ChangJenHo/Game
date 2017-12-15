@@ -120,8 +120,8 @@ namespace Game
         private void RecvData(object sender, NetEventArgs e)
         {
             string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
 
 
@@ -150,8 +150,8 @@ namespace Game
             {
                 info = string.Format("A Client Session:{0} Normal Closed.", e.Client.ID);
             }
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;
@@ -165,8 +165,8 @@ namespace Game
             string info = string.Format("A Client:{0} connect server Session:{1}. Socket Handle:{2}",
             e.Client.ClientSocket.RemoteEndPoint.ToString(),
             e.Client.ID, e.Client.ClientSocket.Handle);
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;
@@ -191,8 +191,8 @@ namespace Game
 　　          //Must do it
 　　          //服務器滿了，必須關閉新來的客戶端連接
 　　          e.Client.Close();
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;

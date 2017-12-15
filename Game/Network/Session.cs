@@ -39,6 +39,7 @@ namespace Game.Network
             NormalExit,
             ExceptionExit
         };
+        
         #endregion
         #region 屬性
         /// <summary>

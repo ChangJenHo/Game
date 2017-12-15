@@ -21,3 +21,14 @@ C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Login\obj\Debug\Login
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Login\obj\Debug\Login.csproj.GenerateResource.Cache
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Login\obj\Debug\Login.exe
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Login\obj\Debug\Login.pdb
+C:\GitLab\Game\Login\bin\Debug\Login.exe.config
+C:\GitLab\Game\Login\obj\Debug\Login.exe
+C:\GitLab\Game\Login\obj\Debug\Login.pdb
+C:\GitLab\Game\Login\bin\Debug\Login.exe
+C:\GitLab\Game\Login\bin\Debug\Login.pdb
+C:\GitLab\Game\Login\bin\Debug\Game.dll
+C:\GitLab\Game\Login\bin\Debug\Game.pdb
+C:\GitLab\Game\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
+C:\GitLab\Game\Login\obj\Debug\Login.MainForm.resources
+C:\GitLab\Game\Login\obj\Debug\Login.Properties.Resources.resources
+C:\GitLab\Game\Login\obj\Debug\Login.csproj.GenerateResource.Cache

@@ -33,6 +33,10 @@ namespace Game
                 {
                     richTextBox1.BeginInvoke(new Action<string>((msg) =>
                     {
+                        if (richTextBox1.Text.Length >= (richTextBox1.MaxLength-2048))
+                        {
+                            richTextBox1.Text = String.Empty;
+                        }
                         richTextBox1.AppendText(msg);
                         richTextBox1.ScrollToCaret();
                         richTextBox1.Focus();
@@ -41,6 +45,10 @@ namespace Game
                 }
                 else
                 {
+                    if (richTextBox1.Text.Length >= (richTextBox1.MaxLength - 2048))
+                    {
+                        richTextBox1.Text = String.Empty;
+                    }
                     richTextBox1.AppendText(text);
                     richTextBox1.ScrollToCaret();
                     richTextBox1.Focus();
@@ -52,7 +60,7 @@ namespace Game
                 Console.WriteLine(ex.Message);    
             }
             OutputDebugString(text);
-            System.Diagnostics.Debug.WriteLine(text);
+            //System.Diagnostics.Debug.WriteLine(text);
 
         }
         public void M_SelectAll_Click(object sender, EventArgs e)
@@ -628,6 +636,7 @@ namespace Game
                 field++;
                 LineCol = String.Format("Line : {0}          Col : {1}      ", row, field);
                 toolStripStatusLabel2.Text = LineCol;
+                toolStripStatusLabel1.Text = String.Format("Size:{0}", richTextBox1.Text.Length.ToString());
             }
             catch (Exception ex)
             {

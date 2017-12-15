@@ -3,6 +3,7 @@ using Game.Network;
 using Game.Network.Email;
 using Game.Network.JSON;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace Login
     {
         public TcpSvr ts;
         public MsSql mssql;
+        public Hashtable PlayIDVarPool;
         public MainForm()
         {
             InitializeComponent();
@@ -53,6 +55,7 @@ namespace Login
                     ts = new TcpSvr(Convert.ToUInt16(PortNo.Text), 4096, new Coder(Coder.EncodingMothord.UTF8));
                     //ts = new TcpSvr(Convert.ToUInt16(PortNo.Text), 4096, new Coder(Coder.EncodingMothord.HexString));
                     //ts.Resovlver = new DatagramResolver(Convert.ToChar(4).ToString());//EOT (end of transmission)
+                    PlayIDVarPool = new Hashtable(4096);
                     ts.ServerFull += new NetEvent(ServerFull);
                     ts.ClientConn += new NetEvent(ClientConn);
                     ts.ClientClose += new NetEvent(ClientClose);
@@ -78,6 +81,7 @@ namespace Login
                     SocketStatusLabel.Text = String.Empty;
                     SessionCount.Text = String.Empty;
                     ts.Dispose();
+                    PlayIDVarPool = null;
                     break;
                 default:
                     break;
@@ -169,31 +173,35 @@ namespace Login
         }
         private void ClientClose(object sender, NetEventArgs e)
         {
+            String PlayID = PlayIDVarPool[e.Client.ID].ToString();
             string info;
+            
             if (e.Client.TypeOfExit == Session.ExitType.ExceptionExit)
             {
-                info = string.Format("Client Session:{0} Exception Closed.", e.Client.ID);
+                info = string.Format("Client Session:{0} Exception Closed. PlayID:{1}", e.Client.ID, PlayID);
             }
             else
             {
-                info = string.Format("Client Session:{0} Normal Closed.", e.Client.ID);
+                info = string.Format("Client Session:{0} Normal Closed. PlayID:{1}", e.Client.ID, PlayID);
             }
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;
             //throw new NotImplementedException();
             DelItem(e.Client.ID.ToString());
             SessionCount.Text = String.Format("Current count of Client is {0}/{1}", ts.SessionCount, ts.Capacity);
+            PlayIDVarPool.Remove(e.Client.ID);
         }
         private void ClientConn(object sender, NetEventArgs e)
         {
             string info = string.Format("Client:{0} connect server Session:{1}. Socket Handle:{2}",
             e.Client.ClientSocket.RemoteEndPoint.ToString(),
             e.Client.ID, e.Client.ClientSocket.Handle);
-            Console.WriteLine(info);
-            Console.Write(">");
+            PlayIDVarPool[e.Client.ID] = e.Client.ClientSocket.Handle;
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;
@@ -219,8 +227,8 @@ namespace Login
 　　          //Must do it
 　　          //服務器滿了，必須關閉新來的客戶端連接
 　　          e.Client.Close();
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             SocketStatus.Text = e.Client.ID.ToString();
             SocketStatusLabel.Text = info;
@@ -229,34 +237,29 @@ namespace Login
         }
         private void RecvData(object sender, NetEventArgs e)
         {
-            string info = string.Format("from:{0} recv data:[{1}]", e.Client, e.Client.Datagram.Replace("\r\n",""));
-            Console.WriteLine(info);
-            Console.Write(">");
-            rtbe1.SetText(info, true);
-
-
+            rtbe1.SetText(string.Format("from:{0} recv data:[{1}]", e.Client, e.Client.Datagram.Replace("\r\n", "")), true);
+            
             SocketStatus.Text = e.Client.ID.ToString();
-            SocketStatusLabel.Text = info;
+            SocketStatusLabel.Text = e.Client.Datagram.Replace("\r\n", "");
 
             UpdItem(e.Client.ID.ToString(), e.Client.Datagram.ToString());
 
             //rtbe1.SetText(Game.Network.Coder.ShowHexString(e.Client.Datagram), true);
 
-            String ReturnString = LoginParser(e.Client.ID.ToString(), e.Client.Datagram);
-
+            String ReturnString = LoginParser(e);
+            
 
             TcpSvr svr = (TcpSvr)sender;
-　　          //测试把收到的数据返回给客户端
-　　          svr.Send(e.Client, ReturnString);
-            string infos = string.Format("from:{0} send data:[{1}]", e.Client, ReturnString);
-            Console.WriteLine(infos);
-            Console.Write(">");
-            rtbe1.SetText(infos, true);
+　　        //测试把收到的数据返回给客户端
+　　        svr.Send(e.Client, ReturnString);            
+            rtbe1.SetText(string.Format("from:{0} send data:[{1}]", e.Client, ReturnString), true);
             //throw new NotImplementedException();
             SessionCount.Text = String.Format("Current count of Client is {0}/{1}", ts.SessionCount, ts.Capacity);
         }
-        public String LoginParser(String ClientID, String Datagram)
+        public String LoginParser(NetEventArgs e)
         {
+            String ClientID= e.Client.ID.ToString(); 
+            String Datagram= e.Client.Datagram;
             // {"Function":"C2S_Registered","FirstName":"Jen Ho","LastName":"Chang","MicknName":"Chang Jen Ho","Password":"a123736844","Birthday":"1973/01/29","email":"g9677602@gmail.com","location":"105","Gender":"","Photo":"0xFFD8FFE000104A46494600010100000100010000FFDB004300080606070605080707070909080A0C140D0C0B0B0C1912130F141D1A1F1E1D1A1C1C20242E2720222C231C1C2837292C30313434341F27393D38323C2E333432FFDB0043010909090C0B0C180D0D1832211C213232323232323232323232323232323232323232"}
             // {"Function":"C2S_Login","Account":"SDB@gmail.com","CheckPassword":"true","Password":"SDB"}
             // {"Function":"C2S_ForgetPassword", "Account":"SDB@gmail.com"}
@@ -297,12 +300,14 @@ namespace Login
                     //check DB Account / Password  Yes No
                     //Get DB [PlayID] [GaneServer]
                     //String[] AA = Game.Network.Information.IPLocal();
-                    ErrorCord = C2S_Login_SQL(account, CheckPassword, password);
-
-                    PlayID = MsSql.VarPool["id"].ToString();
-                    Photo = Game.Network.Coder.BytesToHex((Byte[])MsSql.VarPool["Photo"]);
-                    GaneServer = String.Format("192.168.0.149:8001");
-
+                    ErrorCord = C2S_Login_SQL(account, CheckPassword, password, e);
+                    if (ErrorCord.CompareTo("00000000") == 0)
+                    {
+                        PlayID = e.Client.ID.VarPool["id"].ToString();
+                        Photo = Game.Network.Coder.BytesToHex((Byte[])e.Client.ID.VarPool["Photo"]);
+                        GaneServer = String.Format("192.168.0.149:8001");
+                        PlayIDVarPool[e.Client.ID] = PlayID;
+                    }
                     Datagram = "{\"Function\":\"S2C_Login\",\"PlayID\":\"";
                     Datagram += PlayID;
                     Datagram += "\",\"Photo\":\"";
@@ -338,13 +343,24 @@ namespace Login
             //}        
             return Datagram;
         }
-        public String C2S_Login_SQL(String account, Boolean CheckPassword, String password)
+        public String C2S_Login_SQL(String account, Boolean CheckPassword, String password, NetEventArgs e)
         {
             String ReturnString = "00000000";
+            String CommandString = String.Empty;
             try
             {
-                String CommandString = String.Format("select id,Mail, Photo from Account WHERE Mail='{0}' AND Password='{1}'", account, password);
-                mssql.MsSelect(Login.Properties.Resources.ZLabSDBTestEntities, CommandString, new string[] { "id", "Mail", "Photo" });
+                if (CheckPassword)
+                {
+                    mssql.CommandString = String.Format("select id,Mail, Photo from Account WHERE Mail='{0}' AND Password='{1}';", account, password);
+                }
+                else
+                {
+                    mssql.CommandString = String.Format("select id,Mail, Photo from Account WHERE Mail='{0}';", account);
+                }
+                if (!mssql.MsSelect(new string[] { "id", "Mail", "Photo" }, e.Client.ID.VarPool))
+                {
+                    ReturnString = mssql.ErrorCode;
+                }
                 //String id = MsSql.VarPool["id"].ToString();
                 //String Mail = MsSql.VarPool["Mail"].ToString();
                 //String Photo = Game.Network.Coder.BytesToHex((Byte[])MsSql.VarPool["Photo"]);
@@ -387,7 +403,18 @@ namespace Login
                 this.Text += "] ";}
 
             }
-            mssql = new MsSql();
+            mssql = new MsSql(Login.Properties.Settings.Default.ZLabSDBEntities);
+            PortNo.Text = Login.Properties.Settings.Default.ServerPort;
+            if (Login.Properties.Settings.Default.AutoRun)
+            {
+                toolStripButtonStart_Click(sender, e);
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mssql.Dispose();
+            if(ts!=null) ts.Dispose();
         }
     }
     public class RootObject

@@ -21,3 +21,14 @@ C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Client\obj\Debug\Clie
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Client\bin\Debug\Game.dll
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Client\bin\Debug\Game.pdb
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Client\obj\Debug\Client.MainForm.resources
+C:\GitLab\Game\Client\bin\Debug\Game.dll
+C:\GitLab\Game\Client\bin\Debug\Game.pdb
+C:\GitLab\Game\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\GitLab\Game\Client\obj\Debug\Client.MainForm.resources
+C:\GitLab\Game\Client\obj\Debug\Client.Properties.Resources.resources
+C:\GitLab\Game\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\GitLab\Game\Client\obj\Debug\Client.exe
+C:\GitLab\Game\Client\obj\Debug\Client.pdb
+C:\GitLab\Game\Client\bin\Debug\Client.exe.config
+C:\GitLab\Game\Client\bin\Debug\Client.exe
+C:\GitLab\Game\Client\bin\Debug\Client.pdb

@@ -11,9 +11,18 @@ namespace Game.DataBase
 {
     public class MsSql
     {
-        public static Hashtable VarPool = new Hashtable();
         private bool disposed = false;
+        public String ErrorCode = String.Empty;
         public String ErrorMessing = String.Empty;
+        public String ConnectionString = String.Empty;
+        public String CommandString = String.Empty;
+        public SqlConnection MsSqlConnection=null;
+        public MsSql(String ConnectionStrings)
+        {
+            ConnectionString = ConnectionStrings;
+            MsSqlConnection = new SqlConnection(ConnectionString);
+            MsSqlConnection.Open();
+        }
         public MsSql()
         {
         }
@@ -23,6 +32,11 @@ namespace Game.DataBase
         }
         public void Dispose()
         {
+            if (MsSqlConnection != null)
+            {
+                MsSqlConnection.Close();
+                MsSqlConnection.Dispose();
+            }
             Dispose(true);
             GC.SuppressFinalize(this);
         }
@@ -41,13 +55,117 @@ namespace Game.DataBase
                 GC.Collect();
             }
         }
-        public SqlDataReader MsSqlDataReader(String ConnectionString, String CommandString)
+
+        public SqlDataReader MsSqlDataReader()
         {
             try
             {
-                SqlConnection Connection = new SqlConnection(ConnectionString);
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                SqlDataReader dr = Command.ExecuteReader();
+                Command.Dispose();
+                return dr;
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return null;
+            }
+        }
+        public DataTable MsDataTable()
+        {
+            try
+            {
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                SqlDataAdapter sqldataadapterX = new SqlDataAdapter(Command);
+                DataSet datasetX = new DataSet();
+                sqldataadapterX.Fill(datasetX);
+                DataTable datatableX = datasetX.Tables[0];
+                sqldataadapterX.Dispose();
+                datasetX.Clear();
+                datasetX.Dispose();
+                Command.Dispose();
+                return datatableX;
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return null;
+            }
+        }
+        public DataSet MsDataSet()
+        {
+            try
+            {
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                SqlDataAdapter sqldataadapterX = new SqlDataAdapter(Command);
+                DataSet datasetX = new DataSet();
+                sqldataadapterX.Fill(datasetX);
+                sqldataadapterX.Dispose();
+                return datasetX;
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return null;
+            }
+        }
+        public int MsInsert()
+        {
+            try
+            {
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                return Command.ExecuteNonQuery();   
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return Convert.ToInt16(ex.GetHashCode());
+            }
+        }
+        public Boolean MsSelect(String[] CSA, Hashtable VarPool)
+        {
+            try
+            {
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                SqlDataReader myDataReader = Command.ExecuteReader();
+                VarPool.Clear();
+                while (myDataReader.Read())
+                {
+                    foreach (String Scsa in CSA)
+                    {
+                        if (myDataReader[Scsa].ToString() != "")
+                        {
+                            VarPool[Scsa] = myDataReader[Scsa];
+                        }
+                    }
+                }
+                myDataReader.Close();
+                Command.Dispose();
+                if (VarPool.Count == 0)
+                {
+                    ErrorCode = "00000010";
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return false;
+            }
+
+        }
+        
+        public SqlDataReader MsSqlDataReader(String ConnectionStrings, String CommandStrings)
+        {
+            try
+            {
+                SqlConnection Connection = new SqlConnection(ConnectionStrings);
                 Connection.Open();
-                SqlCommand Command = new SqlCommand(CommandString, Connection);
+                SqlCommand Command = new SqlCommand(CommandStrings, Connection);
                 SqlDataReader dr = Command.ExecuteReader();
                 Command.Cancel();
                 Connection.Close();
@@ -56,16 +174,17 @@ namespace Game.DataBase
             }
             catch (Exception ex)
             {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
                 throw ex;
             }
         }
-        public DataTable MsDataTable(String ConnectionString, String CommandString)
+        public DataTable MsDataTable(String ConnectionStrings, String CommandStrings)
         {
             try
             {
-                SqlConnection Connection = new SqlConnection(ConnectionString);
+                SqlConnection Connection = new SqlConnection(ConnectionStrings);
                 Connection.Open();
-                SqlCommand Command = new SqlCommand(CommandString, Connection);
+                SqlCommand Command = new SqlCommand(CommandStrings, Connection);
                 SqlDataAdapter sda = new SqlDataAdapter(Command);
                 DataSet dss = new DataSet();
                 dss.Clear();
@@ -80,16 +199,17 @@ namespace Game.DataBase
             }
             catch (Exception ex)
             {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
                 throw ex;
             }
         }
-        public DataSet MsDataSet(String ConnectionString, String CommandString)
+        public DataSet MsDataSet(String ConnectionStrings, String CommandStrings)
         {
             try
             {
-                SqlConnection Connection = new SqlConnection(ConnectionString);
+                SqlConnection Connection = new SqlConnection(ConnectionStrings);
                 Connection.Open();
-                SqlCommand Command = new SqlCommand(CommandString, Connection);
+                SqlCommand Command = new SqlCommand(CommandStrings, Connection);
                 SqlDataAdapter sda = new SqlDataAdapter(Command);
                 DataSet dss = new DataSet();
                 sda.Fill(dss);
@@ -101,35 +221,37 @@ namespace Game.DataBase
             }
             catch (Exception ex)
             {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
                 throw ex;
             }
         }
-        public Boolean MsInsert(String ConnectionString, String CommandString)
+        public int MsInsert(String ConnectionStrings, String CommandStrings)
         {
             try
             {
-                SqlConnection Connection = new SqlConnection(ConnectionString);
+                int returnint = 0;
+                SqlConnection Connection = new SqlConnection(ConnectionStrings);
                 Connection.Open();
-                SqlCommand Command = new SqlCommand(CommandString, Connection);
-                Command.ExecuteNonQuery();
+                SqlCommand Command = new SqlCommand(CommandStrings, Connection);
+                returnint=Command.ExecuteNonQuery();
                 Command.Cancel();
                 Connection.Close();
                 Connection.Dispose();
-                return true;
+                return returnint;
             }
             catch (Exception ex)
             {
-
-                return false;
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return Convert.ToInt16(ex.GetHashCode());
             }
         }
-        public Boolean MsSelect(String ConnectionString, String CommandString, String[] CSA)
+        public Boolean MsSelect(String ConnectionStrings, String CommandStrings, String[] CSA, Hashtable VarPool)
         {
             try
             {
-                SqlConnection Connection = new SqlConnection(ConnectionString);
+                SqlConnection Connection = new SqlConnection(ConnectionStrings);
                 Connection.Open();
-                SqlCommand Command = new SqlCommand(CommandString, Connection);
+                SqlCommand Command = new SqlCommand(CommandStrings, Connection);
                 SqlDataReader myDataReader = Command.ExecuteReader();               
                 VarPool.Clear();
                 while (myDataReader.Read())
@@ -145,11 +267,17 @@ namespace Game.DataBase
                 Command.Cancel();
                 Connection.Close();
                 Connection.Dispose();
-                return true;
+                if(VarPool.Count == 0)
+                {
+                    ErrorCode = "00000010";
+                    return false;
+                }else {
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-
+                ErrorCode = Convert.ToString(ex.GetHashCode());
                 return false;
             }
         }

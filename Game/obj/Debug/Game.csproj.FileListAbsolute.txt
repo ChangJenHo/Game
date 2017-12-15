@@ -19,3 +19,13 @@ C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\obj\Debug\Game.S
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\obj\Debug\Game.csproj.GenerateResource.Cache
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\obj\Debug\Game.dll
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\obj\Debug\Game.pdb
+C:\GitLab\Game\Game\bin\Debug\Game.dll
+C:\GitLab\Game\Game\bin\Debug\Game.pdb
+C:\GitLab\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\GitLab\Game\Game\obj\Debug\Game.Properties.Resources.resources
+C:\GitLab\Game\Game\obj\Debug\Game.RTBE.resources
+C:\GitLab\Game\Game\obj\Debug\Game.SocketClient.resources
+C:\GitLab\Game\Game\obj\Debug\Game.SocketServer.resources
+C:\GitLab\Game\Game\obj\Debug\Game.csproj.GenerateResource.Cache
+C:\GitLab\Game\Game\obj\Debug\Game.dll
+C:\GitLab\Game\Game\obj\Debug\Game.pdb

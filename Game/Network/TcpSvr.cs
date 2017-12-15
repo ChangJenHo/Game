@@ -19,11 +19,11 @@ namespace Game.Network
         /// <summary>
         /// 接收數據緩衝區大小64K
         /// </summary>
-        public const int DefaultBufferSize = 64 * 1024;
+        public const int DefaultBufferSize = 1024 * 1024;
         /// <summary>
         /// 最大數據報文大小
         /// </summary>
-        public const int MaxDatagramSize = 640 * 1024;
+        public const int MaxDatagramSize = 10240 * 1024;
         /// <summary>
         /// 報文解析器
         /// </summary>
@@ -222,7 +222,7 @@ namespace Game.Network
             {
                 throw (new ApplicationException("TcpSvr已经在运行."));
             }
-            _sessionTable = new Hashtable(53);
+            _sessionTable = new Hashtable(_maxClient);
             _recvDataBuffer = new byte[DefaultBufferSize];
             //初始化socket
             _svrSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -258,7 +258,6 @@ namespace Game.Network
             _svrSock.Close();
 
             _sessionTable = null;
-
         }
 
         /// <summary>
@@ -358,7 +357,6 @@ namespace Game.Network
 
                 Session newSession = new Session(client);
                 _sessionTable.Add(newSession.ID, newSession);
-
                 //客户端引用计数+1
                 _clientCount++;
                 //开始接受来自该客户端的数据

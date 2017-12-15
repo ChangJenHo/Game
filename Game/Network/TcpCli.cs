@@ -27,7 +27,7 @@ namespace Game.Network
         /// <summary>
         /// 接收數據緩衝區大小64K
         /// </summary>
-        public const int DefaultBufferSize = 64 * 1024;
+        public const int DefaultBufferSize = 10240 * 1024;
         /// <summary>
         /// 報文解析器
         /// </summary>
@@ -56,7 +56,7 @@ namespace Game.Network
         /// </summary>
         public event NetEvent DisConnectedServer;
         /// <summary>
-        /// 錯誤開事件
+        /// 錯誤事件
         /// </summary>
         public event NetEvent ExceptionMessage;
         #endregion

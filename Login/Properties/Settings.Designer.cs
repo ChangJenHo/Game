@@ -22,5 +22,42 @@ namespace Login.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=zlabdb.database.windows.net;initial catalog=ZLabSDB;persist security " +
+            "info=True;user id=ZLabDBAdmin;password=JN3_$fGR&5dQ")]
+        public string ZLabSDBEntities {
+            get {
+                return ((string)(this["ZLabSDBEntities"]));
+            }
+            set {
+                this["ZLabSDBEntities"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8000")]
+        public string ServerPort {
+            get {
+                return ((string)(this["ServerPort"]));
+            }
+            set {
+                this["ServerPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoRun {
+            get {
+                return ((bool)(this["AutoRun"]));
+            }
+            set {
+                this["AutoRun"] = value;
+            }
+        }
     }
 }

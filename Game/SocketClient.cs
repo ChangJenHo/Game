@@ -88,8 +88,8 @@ namespace Game
         private void ClientConn(object sender, NetEventArgs e)
         {
             string info = string.Format("A Client:{0} connect server :{1}", e.Client, e.Client.ClientSocket.RemoteEndPoint.ToString());
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             //throw new NotImplementedException();
         }
@@ -117,8 +117,8 @@ namespace Game
 
 
             }
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             //throw new NotImplementedException();
         }
@@ -126,8 +126,8 @@ namespace Game
         private void RecvData(object sender, NetEventArgs e)
         {
             string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true);
             //throw new NotImplementedException();
         }
@@ -177,8 +177,8 @@ namespace Game
         private void ClienError(object sender, NetEventArgs e)
         {
             string info = string.Format("Error data:{0}.", e.ClientString.ToString());
-            Console.WriteLine(info);
-            Console.Write(">");
+            //Console.WriteLine(info);
+            //Console.Write(">");
             rtbe1.SetText(info, true); ;
             toolStripStatusLabel1.Text = e.ClientString.ToString();
             UpdateUItoolStripButton(toolStripButtonStart,"Start Connect",  Color.Red, Game.Properties.Resources.Red);

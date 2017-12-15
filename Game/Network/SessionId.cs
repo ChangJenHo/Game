@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Game.Network
     /// </summary>
     public class SessionId
     {
+        public Hashtable VarPool=new System.Collections.Hashtable();
         /// <summary>
         /// 與Session對象的Socket對象的Handle值相同,必須用這個值來初始化它
         /// </summary>

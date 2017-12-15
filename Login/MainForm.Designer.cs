@@ -35,6 +35,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rtbe1 = new Game.RTBE();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,7 +55,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtbe1 = new Game.RTBE();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -125,6 +125,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Monitor";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rtbe1
+            // 
+            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbe1.FontName = "新細明體";
+            this.rtbe1.Location = new System.Drawing.Point(0, 0);
+            this.rtbe1.Name = "rtbe1";
+            this.rtbe1.Size = new System.Drawing.Size(957, 465);
+            this.rtbe1.TabIndex = 0;
             // 
             // columnHeader4
             // 
@@ -298,17 +309,6 @@
             this.toolStripMenuItem2.Text = "Hide";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // rtbe1
-            // 
-            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbe1.FontName = "新細明體";
-            this.rtbe1.Location = new System.Drawing.Point(0, 0);
-            this.rtbe1.Name = "rtbe1";
-            this.rtbe1.Size = new System.Drawing.Size(957, 465);
-            this.rtbe1.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -321,6 +321,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Server";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.toolStrip1.ResumeLayout(false);

@@ -19,7 +19,7 @@ namespace Login.Properties {
     // 類別透過 ResGen 或 Visual Studio 這類工具。
     // 若要加入或移除成員，請編輯您的 .ResX 檔，然後重新執行 ResGen
     // (利用 /str 選項)，或重建您的 VS 專案。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -91,7 +91,7 @@ namespace Login.Properties {
         }
         
         /// <summary>
-        ///   查詢類似 data source=zlabdb.database.windows.net;initial catalog=ZLabSDB;persist security info=True;user id=ZLabDBAdmin;password=JN3_$fGR&amp;amp;5dQ;MultipleActiveResultSets=True;App=EntityFramework&amp;quot; 的當地語系化字串。
+        ///   查詢類似 data source=zlabdb.database.windows.net;initial catalog=ZLabSDB;persist security info=True;user id=ZLabDBAdmin;password=JN3_$fGR&amp;5dQ 的當地語系化字串。
         /// </summary>
         internal static string ZLabSDBEntities {
             get {
