@@ -12,7 +12,7 @@ namespace Login.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -57,6 +57,56 @@ namespace Login.Properties {
             }
             set {
                 this["AutoRun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=211.72.174.44;Initial Catalog=ZLabSDB;Persist Security Info=True;User" +
+            " ID=sdb;Password=sdbzlab")]
+        public string ZLabSDBTestEntities {
+            get {
+                return ((string)(this["ZLabSDBTestEntities"]));
+            }
+            set {
+                this["ZLabSDBTestEntities"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SDB backup password")]
+        public string subject {
+            get {
+                return ((string)(this["subject"]));
+            }
+            set {
+                this["subject"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"Please use the spare password to log in within 24 hours,\\nPlease change your pas" +
+            "sword after login\\nAlternate password: [{0}]\\n")]
+        public string body {
+            get {
+                return ((string)(this["body"]));
+            }
+            set {
+                this["body"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DebugShow {
+            get {
+                return ((bool)(this["DebugShow"]));
+            }
+            set {
+                this["DebugShow"] = value;
             }
         }
     }

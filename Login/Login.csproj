@@ -106,9 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lock_login_manager_security_128px_1420_easyicon.net.ico" />
+    <None Include="Resources\connect_established_128px_14214_easyicon.net.png" />
+    <None Include="Resources\connect_no_128px_14813_easyicon.net.png" />
+    <None Include="Resources\connect_no_128px_14813_easyicon.net.ico" />
+    <None Include="Resources\connect_established_128px_14214_easyicon.net.ico" />
+    <None Include="Resources\Red.jpg" />
+    <None Include="Resources\Blue.jpg" />
     <None Include="Resources\SDB.gif" />
-    <None Include="Resources\red.jpg" />
-    <None Include="Resources\blue.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

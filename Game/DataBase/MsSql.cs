@@ -19,9 +19,18 @@ namespace Game.DataBase
         public SqlConnection MsSqlConnection=null;
         public MsSql(String ConnectionStrings)
         {
-            ConnectionString = ConnectionStrings;
-            MsSqlConnection = new SqlConnection(ConnectionString);
-            MsSqlConnection.Open();
+            try
+            { 
+                ConnectionString = ConnectionStrings;
+                MsSqlConnection = new SqlConnection(ConnectionString);
+                MsSqlConnection.Open();
+                ErrorCode = "00000000";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessing=ex.Message;
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+            }
         }
         public MsSql()
         {
@@ -156,9 +165,38 @@ namespace Game.DataBase
                 ErrorCode = Convert.ToString(ex.GetHashCode());
                 return false;
             }
-
         }
-        
+        public Boolean MsUpdata()
+        {
+            try
+            {
+                SqlCommand Command = new SqlCommand(CommandString, MsSqlConnection);
+                SqlDataAdapter sqldataadapterX = new SqlDataAdapter(Command);
+                if (sqldataadapterX.UpdateCommand.ExecuteNonQuery() > 0)
+                {
+                    ErrorCode = "00000000";
+                }
+                else
+                {
+                    ErrorCode = "00000011";
+                }
+                sqldataadapterX.Dispose();
+                Command.Dispose();
+                if (ErrorCode.CompareTo("00000011")==0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorCode = Convert.ToString(ex.GetHashCode());
+                return false;
+            }
+        }
         public SqlDataReader MsSqlDataReader(String ConnectionStrings, String CommandStrings)
         {
             try
@@ -281,5 +319,51 @@ namespace Game.DataBase
                 return false;
             }
         }
+        public static String CommandStringSELECT(String DBtable, String[] DataName, String[] DataVale)
+        {
+            String CSS = String.Format("SELECT ");
+            return CSS;
+        }
+        /// <summary>
+        /// 新增SQL命令
+        /// </summary>
+        /// <param name="DBtable">資料表</param>
+        /// <param name="DataName">欄位名 new string[] {"AAA","BBB"}</param>
+        /// <param name="DataVale">欄位資料 new string[] {"AAA, nvarchar(max),","BBB, varbinary(max),"}</param>
+        /// <returns>SQL命令字串</returns>
+        public static String CommandStringINSERT(String DBtable, String[] DataName, String[] DataVale )
+        {
+            String CSI = String.Format("INSERT INTO [dbo].[{0}](", DBtable);
+            Boolean iii = false;
+            foreach (String DN in DataName)
+            {
+                if (iii)
+                {
+                    CSI += String.Format(",[{0}]", DN);
+                }
+                else
+                { 
+                    CSI += String.Format("[{0}]", DN);
+                    iii = true;
+                }
+            }
+            CSI += String.Format(")VALUES(" );
+            iii = false;
+            foreach (String DV in DataVale)
+            {
+                if (iii)
+                {
+                    CSI += String.Format(",<{0}>", DV);
+                }
+                else
+                {
+                    CSI += String.Format("<{0}>", DV);
+                    iii = true;
+                }
+            }
+            CSI += String.Format(")");
+            return CSI;
+        }
+
     }
 }

@@ -11,5 +11,17 @@
     <Setting Name="AutoRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ZLabSDBTestEntities" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=211.72.174.44;Initial Catalog=ZLabSDB;Persist Security Info=True;User ID=sdb;Password=sdbzlab</Value>
+    </Setting>
+    <Setting Name="subject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SDB backup password</Value>
+    </Setting>
+    <Setting Name="body" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"Please use the spare password to log in within 24 hours,\nPlease change your password after login\nAlternate password: [{0}]\n</Value>
+    </Setting>
+    <Setting Name="DebugShow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

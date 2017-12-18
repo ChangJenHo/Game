@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -236,6 +238,86 @@ namespace Game.Network
                 Console.WriteLine(ex.Message);
             }
             return ReturnString;
+        }
+        /// <summary>
+        /// byte[]轉換成Image
+        /// </summary>
+        /// <param name="byteArrayIn">二進制圖片流</param>
+        /// <returns>Image</returns>
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            if (byteArrayIn == null)
+                return null;
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArrayIn))
+            {
+                System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+                ms.Flush();
+                return returnImage;
+            }
+        }
+        /// <summary>
+        /// Image轉byte[]
+        /// </summary>
+        /// <param name="imageIn">圖片</param>
+        /// <returns>byte array</returns>
+        public static byte[] ImageToByteArray(Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+                return ms.ToArray();
+            }
+        }
+        /// <summary>
+        /// byte[]轉換成Image
+        /// </summary>
+        /// <param name="Bytes">二進制圖片流</param>
+        /// <returns>Bitmap</returns>
+        public static Bitmap BytesToBitmap(byte[] Bytes)
+        {
+            MemoryStream stream = null;
+            try
+            {
+                stream = new MemoryStream(Bytes);
+                return new Bitmap((Image)new Bitmap(stream));
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                stream.Close();
+            }
+        }
+        /// <summary>
+        /// Bitmap轉byte[]
+        /// </summary>
+        /// <param name="Bitmap">圖片</param>
+        /// <returns>byte array</returns>
+        public static byte[] BitmapToBytes(Bitmap Bitmap)
+        {
+            MemoryStream ms = null;
+            try
+            {
+                ms = new MemoryStream();
+                Bitmap.Save(ms, Bitmap.RawFormat);
+                byte[] byteImage = new Byte[ms.Length];
+                byteImage = ms.ToArray();
+                return byteImage;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                ms.Close();
+            }
         }
     }
 }

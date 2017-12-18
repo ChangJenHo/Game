@@ -34,6 +34,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rtbe1 = new Game.RTBE();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,7 +69,9 @@
             // 
             // PortNo
             // 
+            this.PortNo.BackColor = System.Drawing.SystemColors.WindowText;
             this.PortNo.Font = new System.Drawing.Font("Microsoft JhengHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.PortNo.ForeColor = System.Drawing.SystemColors.Window;
             this.PortNo.MaxLength = 5;
             this.PortNo.Name = "PortNo";
             this.PortNo.Size = new System.Drawing.Size(100, 55);
@@ -84,10 +87,11 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButtonStart,
-            this.PortNo});
+            this.PortNo,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(426, 55);
+            this.toolStrip1.Size = new System.Drawing.Size(497, 55);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripButton1
@@ -104,27 +108,36 @@
             // toolStripButtonStart
             // 
             this.toolStripButtonStart.BackColor = System.Drawing.Color.Red;
-            this.toolStripButtonStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStart.BackgroundImage")));
             this.toolStripButtonStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.toolStripButtonStart.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripButtonStart.ForeColor = System.Drawing.Color.White;
-            this.toolStripButtonStart.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStart.Image")));
-            this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Red;
+            this.toolStripButtonStart.Image = global::Login.Properties.Resources.connect_established_128px_14214_easyicon_net1;
+            this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonStart.Name = "toolStripButtonStart";
             this.toolStripButtonStart.Size = new System.Drawing.Size(129, 52);
             this.toolStripButtonStart.Text = "Start Server";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.ActiveLinkColor = System.Drawing.Color.Transparent;
+            this.toolStripLabel1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
+            this.toolStripLabel1.ForeColor = System.Drawing.SystemColors.Window;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(102, 52);
+            this.toolStripLabel1.Text = "<<--Debug-->>";
+            // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.WindowText;
             this.tabPage2.Controls.Add(this.rtbe1);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(956, 465);
+            this.tabPage2.Size = new System.Drawing.Size(1117, 465);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Monitor";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // rtbe1
             // 
@@ -134,7 +147,7 @@
             this.rtbe1.FontName = "新細明體";
             this.rtbe1.Location = new System.Drawing.Point(0, 0);
             this.rtbe1.Name = "rtbe1";
-            this.rtbe1.Size = new System.Drawing.Size(957, 465);
+            this.rtbe1.Size = new System.Drawing.Size(1116, 465);
             this.rtbe1.TabIndex = 0;
             // 
             // columnHeader4
@@ -159,20 +172,21 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.WindowText;
             this.tabPage1.Controls.Add(this.listView2);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(956, 465);
+            this.tabPage1.Size = new System.Drawing.Size(1117, 465);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Details";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // listView2
             // 
             this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView2.BackColor = System.Drawing.SystemColors.WindowText;
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -180,13 +194,14 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.ForeColor = System.Drawing.SystemColors.Window;
             this.listView2.FullRowSelect = true;
             this.listView2.LabelWrap = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Margin = new System.Windows.Forms.Padding(0);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(956, 465);
+            this.listView2.Size = new System.Drawing.Size(1115, 465);
             this.listView2.TabIndex = 14;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -208,7 +223,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(964, 491);
+            this.tabControl1.Size = new System.Drawing.Size(1125, 491);
             this.tabControl1.TabIndex = 0;
             // 
             // toolStripContainer1
@@ -220,47 +235,53 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tabControl1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(967, 490);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1128, 490);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(967, 545);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1128, 545);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
+            this.toolStripContainer1.TopToolStripPanel.BackColor = System.Drawing.SystemColors.WindowText;
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // SessionCount
             // 
+            this.SessionCount.ForeColor = System.Drawing.SystemColors.Window;
             this.SessionCount.Name = "SessionCount";
             this.SessionCount.Size = new System.Drawing.Size(16, 17);
             this.SessionCount.Text = "...";
             // 
             // SocketStatusLabel
             // 
+            this.SocketStatusLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.SocketStatusLabel.Name = "SocketStatusLabel";
-            this.SocketStatusLabel.Size = new System.Drawing.Size(920, 17);
+            this.SocketStatusLabel.Size = new System.Drawing.Size(1048, 17);
             this.SocketStatusLabel.Spring = true;
             this.SocketStatusLabel.Text = "...";
             this.SocketStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SocketStatus
             // 
+            this.SocketStatus.ForeColor = System.Drawing.SystemColors.Window;
             this.SocketStatus.Name = "SocketStatus";
             this.SocketStatus.Size = new System.Drawing.Size(16, 17);
             this.SocketStatus.Text = "...";
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.WindowText;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SocketStatus,
             this.SocketStatusLabel,
             this.SessionCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 544);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(967, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1128, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -311,11 +332,14 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 566);
+            this.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ClientSize = new System.Drawing.Size(1128, 566);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.statusStrip1);
+            this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ForeColor = System.Drawing.SystemColors.Window;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -369,6 +393,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        public System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 
