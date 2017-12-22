@@ -1,0 +1,11 @@
+C:\GitLab\Game\Login\bin\Release\Login.exe.config
+C:\GitLab\Game\Login\bin\Release\Login.exe
+C:\GitLab\Game\Login\bin\Release\Login.pdb
+C:\GitLab\Game\Login\bin\Release\Game.dll
+C:\GitLab\Game\Login\bin\Release\Game.pdb
+C:\GitLab\Game\Login\obj\Release\Login.csprojResolveAssemblyReference.cache
+C:\GitLab\Game\Login\obj\Release\Login.MainForm.resources
+C:\GitLab\Game\Login\obj\Release\Login.Properties.Resources.resources
+C:\GitLab\Game\Login\obj\Release\Login.csproj.GenerateResource.Cache
+C:\GitLab\Game\Login\obj\Release\Login.exe
+C:\GitLab\Game\Login\obj\Release\Login.pdb

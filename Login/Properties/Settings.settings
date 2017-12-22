@@ -23,5 +23,20 @@
     <Setting Name="DebugShow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="EmailFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SmartDartBoard@gmail.com</Value>
+    </Setting>
+    <Setting Name="Emailpassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sdbzlabdev</Value>
+    </Setting>
+    <Setting Name="smtpAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="portNumber" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="enableSSL" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -163,10 +163,16 @@ namespace Game.Network
         public void Close()
         {
             Debug.Assert(_cliSock != null);
-            //关闭数据的接受和发送
-            _cliSock.Shutdown(SocketShutdown.Both);
-            //清理资源
-            _cliSock.Close();
+            try
+            {
+                //关闭数据的接受和发送
+                _cliSock.Shutdown(SocketShutdown.Both);
+            }
+            finally
+            {
+                //清理资源
+                _cliSock.Close();
+            }
         }
         #endregion
         #region ICloneable 成員

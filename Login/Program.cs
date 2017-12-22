@@ -14,6 +14,7 @@ namespace Login
         [STAThread]
         static void Main()
         {
+            Game.BootAutomaticallyExecuteTheProgram.BAETP("Login");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

@@ -13,6 +13,10 @@ namespace Game.Network
     {
         #region 定義字段
         /// <summary>
+        /// HeadLength = true 電文前4碼為長度,false 一般電文
+        /// </summary>
+        public Boolean HeadLength=false;
+        /// <summary>
         /// 默認的服務器最大連接客戶端端數據
         /// </summary>
         public const int DefaultMaxClient = 100;
@@ -302,8 +306,19 @@ namespace Game.Network
         {
             //获得数据编码
             byte[] data = _coder.GetEncodingBytes(datagram);
-            recvDataClient.ClientSocket.BeginSend(data, 0, data.Length, SocketFlags.None,
-            new AsyncCallback(SendDataEnd), recvDataClient.ClientSocket);
+            if (HeadLength)
+            { 
+                int arrayLength = IPAddress.HostToNetworkOrder(data.Length);
+                byte[] lengthByteArray = System.BitConverter.GetBytes(arrayLength);
+                byte[] Bytes = new byte[data.Length + 4];
+                Array.Copy(lengthByteArray, 0, Bytes, 0, 4);
+                Array.Copy(data, 0, Bytes, 4, data.Length);
+                recvDataClient.ClientSocket.BeginSend(Bytes, 0, Bytes.Length, SocketFlags.None,
+                new AsyncCallback(SendDataEnd), recvDataClient.ClientSocket);
+            }else {
+                recvDataClient.ClientSocket.BeginSend(data, 0, data.Length, SocketFlags.None,
+                new AsyncCallback(SendDataEnd), recvDataClient.ClientSocket);
+            }
         }
         #endregion 公有方法
         #region 受保護方法
@@ -394,15 +409,24 @@ namespace Game.Network
             {
                 //如果两次开始了异步的接收,所以当客户端退出的时候
                 //会两次执行EndReceive
-
-                int recv = client.EndReceive(iar);
+                string receivedData = String.Empty;
+               int recv = client.EndReceive(iar);
                 if (recv == 0)
                 {
                     //正常的关闭
                     CloseClient(client, Session.ExitType.NormalExit);
                     return;
                 }
-                string receivedData = _coder.GetEncodingString(_recvDataBuffer, recv);
+                if (HeadLength)
+                {
+                    byte[] Bytes = new byte[_recvDataBuffer.Length - 4];
+                    Array.Copy(_recvDataBuffer, 4, Bytes, 0, _recvDataBuffer.Length-4);
+                    receivedData = _coder.GetEncodingString(Bytes, recv);
+                }
+                else
+                {
+                 receivedData = _coder.GetEncodingString(_recvDataBuffer, recv);
+                }
                 //发布收到数据的事件
                 if (RecvData != null)
                 {

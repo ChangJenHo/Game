@@ -34,12 +34,13 @@
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.SendData = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
-            this.rtbe1 = new Game.RTBE();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.IPNo = new System.Windows.Forms.ToolStripTextBox();
             this.PortNo = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
+            this.rtbe1 = new Game.RTBE();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -95,6 +96,7 @@
             this.SendData.Name = "SendData";
             this.SendData.Size = new System.Drawing.Size(689, 26);
             this.SendData.TabIndex = 2;
+            this.SendData.Text = resources.GetString("SendData.Text");
             // 
             // buttonSend
             // 
@@ -109,18 +111,6 @@
             this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.toolStripButtonSend_Click);
             // 
-            // rtbe1
-            // 
-            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbe1.FontName = "新細明體";
-            this.rtbe1.Location = new System.Drawing.Point(0, 32);
-            this.rtbe1.Margin = new System.Windows.Forms.Padding(0);
-            this.rtbe1.Name = "rtbe1";
-            this.rtbe1.Size = new System.Drawing.Size(782, 450);
-            this.rtbe1.TabIndex = 0;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
@@ -130,10 +120,11 @@
             this.toolStripButton1,
             this.IPNo,
             this.PortNo,
-            this.toolStripButtonStart});
+            this.toolStripButtonStart,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(561, 55);
+            this.toolStrip1.Size = new System.Drawing.Size(693, 55);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripButton1
@@ -152,7 +143,7 @@
             this.IPNo.MaxLength = 15;
             this.IPNo.Name = "IPNo";
             this.IPNo.Size = new System.Drawing.Size(200, 55);
-            this.IPNo.Text = "192.168.0.149";
+            this.IPNo.Text = "104.155.203.129";
             this.IPNo.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PortNo
@@ -161,7 +152,7 @@
             this.PortNo.MaxLength = 5;
             this.PortNo.Name = "PortNo";
             this.PortNo.Size = new System.Drawing.Size(100, 55);
-            this.PortNo.Text = "8000";
+            this.PortNo.Text = "9091";
             this.PortNo.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // toolStripButtonStart
@@ -175,6 +166,26 @@
             this.toolStripButtonStart.Size = new System.Drawing.Size(93, 52);
             this.toolStripButtonStart.Text = "Start Connect";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
+            // 
+            // rtbe1
+            // 
+            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbe1.FontName = "新細明體";
+            this.rtbe1.Location = new System.Drawing.Point(0, 32);
+            this.rtbe1.Margin = new System.Windows.Forms.Padding(0);
+            this.rtbe1.Name = "rtbe1";
+            this.rtbe1.Size = new System.Drawing.Size(782, 450);
+            this.rtbe1.TabIndex = 0;
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(101, 52);
+            this.toolStripButton2.Text = "                              ";
             // 
             // MainForm
             // 
@@ -215,6 +226,7 @@
         private System.Windows.Forms.TextBox SendData;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 

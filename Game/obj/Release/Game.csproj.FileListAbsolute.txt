@@ -1,0 +1,9 @@
+C:\GitLab\Game\Game\bin\Release\Game.dll
+C:\GitLab\Game\Game\bin\Release\Game.pdb
+C:\GitLab\Game\Game\obj\Release\Game.Properties.Resources.resources
+C:\GitLab\Game\Game\obj\Release\Game.RTBE.resources
+C:\GitLab\Game\Game\obj\Release\Game.SocketClient.resources
+C:\GitLab\Game\Game\obj\Release\Game.SocketServer.resources
+C:\GitLab\Game\Game\obj\Release\Game.csproj.GenerateResource.Cache
+C:\GitLab\Game\Game\obj\Release\Game.dll
+C:\GitLab\Game\Game\obj\Release\Game.pdb

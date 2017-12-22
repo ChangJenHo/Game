@@ -17,6 +17,10 @@ namespace Game.Network
     {
         #region 宣告
         /// <summary>
+        /// HeadLength = true 電文前4碼為長度,false 一般電文
+        /// </summary>
+        public Boolean HeadLength = false;
+        /// <summary>
         /// 客戶端與服務器之間的會話類
         /// </summary>
         private Session _session;
@@ -188,8 +192,22 @@ namespace Game.Network
             }
             //獲得報文的編碼字節
             byte[] data = _coder.GetEncodingBytes(datagram);
-            _session.ClientSocket.BeginSend(data, 0, data.Length, SocketFlags.None,
-            new AsyncCallback(SendDataEnd), _session.ClientSocket);
+            if (HeadLength)
+            {
+                int arrayLength = IPAddress.HostToNetworkOrder(data.Length);
+                byte[] lengthByteArray = System.BitConverter.GetBytes(arrayLength);
+                byte[] Bytes = new byte[data.Length+4];
+                Array.Copy(lengthByteArray, 0, Bytes,0,4);
+                Array.Copy(data, 0, Bytes, 4, data.Length);
+                _session.ClientSocket.BeginSend(Bytes, 0, Bytes.Length, SocketFlags.None, new AsyncCallback(SendDataEnd), _session.ClientSocket);
+
+            }
+            else
+            {
+                _session.ClientSocket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendDataEnd), _session.ClientSocket);
+            }
+
+
         }
         /// <summary>
         /// 關閉連接
@@ -255,6 +273,7 @@ namespace Game.Network
             Socket remote = (Socket)iar.AsyncState;
             try
             {
+                String receivedData = String.Empty;
                 int recv = remote.EndReceive(iar);
                 //正常的退出
                 if (recv == 0)
@@ -266,8 +285,16 @@ namespace Game.Network
                     }
                     return;
                 }
-                string receivedData = _coder.GetEncodingString(_recvDataBuffer, recv);
-
+                if (HeadLength)
+                {
+                    byte[] Bytes = new byte[_recvDataBuffer.Length - 4];
+                    Array.Copy(_recvDataBuffer, 4, Bytes, 0, _recvDataBuffer.Length - 4);
+                    receivedData = _coder.GetEncodingString(Bytes, recv);
+                }
+                else
+                {
+                    receivedData = _coder.GetEncodingString(_recvDataBuffer, recv);
+                }
                 //通過事件發布收到的報文
                 if (ReceivedDatagram != null)
                 {
@@ -283,7 +310,7 @@ namespace Game.Network
                         }
                         string[] recvDatagrams = _resolver.Resolve(ref receivedData);
 
-                        foreach (string newDatagram in recvDatagrams)
+                            foreach (string newDatagram in recvDatagrams)
                         {
                             //因為需要保證多個不同報文獨立存在
                             ICloneable copySession = (ICloneable)_session;

@@ -85,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Home_Server_128px_554956_easyicon.net.ico" />
+    <None Include="Resources\connect_no_128px_14813_easyicon.net.png" />
+    <None Include="Resources\connect_established_128px_14214_easyicon.net.png" />
+    <None Include="Resources\SDB.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

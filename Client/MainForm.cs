@@ -1,5 +1,7 @@
 ﻿using Game.Network;
+using Game.Network.JSON;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +43,7 @@ namespace Client
                         tc.ConnectedServer += new NetEvent(ClientConn);
                         tc.ExceptionMessage += new NetEvent(ClienError);
                         tc.Connect(IPNo.Text, Convert.ToUInt16(PortNo.Text));
+                        tc.HeadLength = true;
                         buttonSend.Enabled = true;
                         SendData.Enabled = true;
                         rtbe1.SetText(String.Format("Connect to [{0}]({1})", IPNo.Text, PortNo.Text), true);
@@ -79,11 +82,13 @@ namespace Client
                 tc.Dispose();
                 rtbe1.SetText(String.Format("DisConnect to [{0}]({1})", IPNo.Text, PortNo.Text), true);
             }
+
         }
         private void toolStripButtonSend_Click(object sender, EventArgs e)
         {
-            try { 
-            //tc.Send(String.Format("{0}{1}", SendData.Text, Convert.ToChar(4).ToString()));
+            try {
+                //tc.Send(String.Format("{0}{1}", SendData.Text, Convert.ToChar(4).ToString()));
+                //SendData.Text = String.Format("{0}{1}", SendData.Text.Length.ToString("X8"), SendData.Text);
             tc.Send(String.Format("{0}", SendData.Text));
             rtbe1.SetText(String.Format("Send to [{0}]({1})<<==[{2}]", IPNo.Text, PortNo.Text, SendData.Text), true);
             }
@@ -130,11 +135,55 @@ namespace Client
 
         private void RecvData(object sender, NetEventArgs e)
         {
-            string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
+            string ReturnCode = String.Empty;
+            string ReturnCodeB = String.Empty;
+            //string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
+            string info = string.Format("recv data:from:{0}.", e.Client);
             //Console.WriteLine(info);
             //Console.Write(">");
             rtbe1.SetText(info, true);
             //throw new NotImplementedException();
+            JsonData contentData = JsonMapper.ToObject(e.Client.Datagram);
+            JsonData friendsData = contentData["paramObject"];
+            String Fdata = contentData["methodName"].ToString();
+            switch (Fdata)
+            {
+                case "registered":
+                    int count = friendsData.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        ReturnCode = friendsData["rs"].ToString();     // night or tom
+                        ReturnCodeB = friendsData["photo"].ToString();
+                    }
+                    byte[] AA = Game.Network.Coder.HexToBytes(ReturnCodeB);
+                    AddImage((Image)Game.Network.Coder.byteArrayToImage(AA));
+                    break;
+                case "S2C_Login":
+                    ReturnCodeB = friendsData["Photo"].ToString();
+                    byte[] BB = Game.Network.Coder.HexToBytes(ReturnCodeB);
+                    AddImage((Image)Game.Network.Coder.byteArrayToImage(BB));
+                    break;
+                case "":
+                    break;
+                default:
+                    break;
+            }
+            //rtbe1.SetText(Fdata, true);
+            //rtbe1.SetText(ReturnCode, true);
+        }
+        private delegate void AddImageCallback(Image o);
+        public void AddImage(Image o)
+        {
+            if (this.InvokeRequired)
+            {
+                AddImageCallback d = new AddImageCallback(AddImage);
+                this.Invoke(d, new object[] { o });
+            }
+            else
+            {
+                // code that adds item to listView (in this case $o)
+                toolStripButton2.BackgroundImage = (Image)o;
+            }
         }
         /// <summary>
         /// 

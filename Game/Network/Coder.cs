@@ -51,7 +51,7 @@ namespace Game.Network
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
             }
-}
+        }
         public enum EncodingMothord
         {
             Default = 0,
@@ -92,7 +92,7 @@ namespace Game.Network
                     }
                 default:
                     {
-                        throw (new Exception("未定義的編碼格式"));
+                        return BytesToHex(dataBytes, 0, size);
                     }
             }
         }
@@ -127,7 +127,7 @@ namespace Game.Network
                     }
                 default:
                     {
-                        throw (new Exception("未定义的编码格式"));
+                        return HexToBytes(datagram);
                     }
             }
         }
@@ -239,22 +239,7 @@ namespace Game.Network
             }
             return ReturnString;
         }
-        /// <summary>
-        /// byte[]轉換成Image
-        /// </summary>
-        /// <param name="byteArrayIn">二進制圖片流</param>
-        /// <returns>Image</returns>
-        public static Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            if (byteArrayIn == null)
-                return null;
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArrayIn))
-            {
-                System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
-                ms.Flush();
-                return returnImage;
-            }
-        }
+        
         /// <summary>
         /// Image轉byte[]
         /// </summary>
@@ -319,5 +304,45 @@ namespace Game.Network
                 ms.Close();
             }
         }
+        /// <summary>
+        /// 將圖片Image轉換成Byte[]
+        /// </summary>
+        /// <param name="Image">image物件</param>
+        /// <param name="imageFormat">字尾名</param>
+        /// <returns></returns>
+        public static byte[] ImageToBytes(Image Image, System.Drawing.Imaging.ImageFormat imageFormat)
+        {
+            if (Image == null) { return null; }
+            byte[] data = null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (Bitmap Bitmap = new Bitmap(Image))
+                {
+                    Bitmap.Save(ms, imageFormat);
+                    ms.Position = 0;
+                    data = new byte[ms.Length];
+                    ms.Read(data, 0, Convert.ToInt32(ms.Length));
+                    ms.Flush();
+                }
+            }
+            return data;
+        }
+        /// <summary>
+        /// byte[]轉換成Image
+        /// </summary>
+        /// <param name="byteArrayIn">二進位制圖片流</param>
+        /// <returns>Image</returns>
+        public static System.Drawing.Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            if (byteArrayIn == null)
+                return null;
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArrayIn))
+            {
+                System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+                ms.Flush();
+                return returnImage;
+            }
+        }
+        
     }
 }

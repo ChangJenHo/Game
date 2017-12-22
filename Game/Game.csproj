@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootAutomaticallyExecuteTheProgram.cs" />
     <Compile Include="DataBase\MsSql.cs" />
     <Compile Include="Network\Coder.cs" />
     <Compile Include="Network\DatagramResolver.cs" />

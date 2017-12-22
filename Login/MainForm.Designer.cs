@@ -245,7 +245,7 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.BackColor = System.Drawing.SystemColors.WindowText;
+            this.toolStripContainer1.TopToolStripPanel.BackColor = System.Drawing.Color.Transparent;
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // SessionCount
@@ -259,7 +259,7 @@
             // 
             this.SocketStatusLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.SocketStatusLabel.Name = "SocketStatusLabel";
-            this.SocketStatusLabel.Size = new System.Drawing.Size(1048, 17);
+            this.SocketStatusLabel.Size = new System.Drawing.Size(1079, 17);
             this.SocketStatusLabel.Spring = true;
             this.SocketStatusLabel.Text = "...";
             this.SocketStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

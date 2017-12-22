@@ -59,5 +59,35 @@ namespace Server.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap connect_established_128px_14214_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("connect_established_128px_14214_easyicon_net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap connect_no_128px_14813_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("connect_no_128px_14813_easyicon_net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SDB {
+            get {
+                object obj = ResourceManager.GetObject("SDB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
