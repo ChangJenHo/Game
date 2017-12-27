@@ -2,40 +2,40 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Login.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ZLabSDBEntities" Type="System.String" Scope="User">
+    <Setting Name="ZLabSDBEntities" Type="System.String" Scope="Application">
       <Value Profile="(Default)">data source=zlabdb.database.windows.net;initial catalog=ZLabSDB;persist security info=True;user id=ZLabDBAdmin;password=JN3_$fGR&amp;5dQ</Value>
     </Setting>
-    <Setting Name="ServerPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">8000</Value>
+    <Setting Name="ServerPort" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9091</Value>
     </Setting>
-    <Setting Name="AutoRun" Type="System.Boolean" Scope="User">
+    <Setting Name="AutoRun" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ZLabSDBTestEntities" Type="System.String" Scope="User">
+    <Setting Name="ZLabSDBTestEntities" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=211.72.174.44;Initial Catalog=ZLabSDB;Persist Security Info=True;User ID=sdb;Password=sdbzlab</Value>
     </Setting>
-    <Setting Name="subject" Type="System.String" Scope="User">
+    <Setting Name="subject" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SDB backup password</Value>
     </Setting>
-    <Setting Name="body" Type="System.String" Scope="User">
+    <Setting Name="body" Type="System.String" Scope="Application">
       <Value Profile="(Default)">"Please use the spare password to log in within 24 hours,\nPlease change your password after login\nAlternate password: [{0}]\n</Value>
     </Setting>
-    <Setting Name="DebugShow" Type="System.Boolean" Scope="User">
+    <Setting Name="DebugShow" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="EmailFrom" Type="System.String" Scope="User">
+    <Setting Name="EmailFrom" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SmartDartBoard@gmail.com</Value>
     </Setting>
-    <Setting Name="Emailpassword" Type="System.String" Scope="User">
+    <Setting Name="Emailpassword" Type="System.String" Scope="Application">
       <Value Profile="(Default)">sdbzlabdev</Value>
     </Setting>
-    <Setting Name="smtpAddress" Type="System.String" Scope="User">
+    <Setting Name="smtpAddress" Type="System.String" Scope="Application">
       <Value Profile="(Default)">smtp.gmail.com</Value>
     </Setting>
-    <Setting Name="portNumber" Type="System.Int32" Scope="User">
+    <Setting Name="portNumber" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">587</Value>
     </Setting>
-    <Setting Name="enableSSL" Type="System.Boolean" Scope="User">
+    <Setting Name="enableSSL" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

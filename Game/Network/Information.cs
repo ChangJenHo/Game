@@ -34,7 +34,7 @@ namespace Game.Network
                 // 只取得IP V4的Address
                 if (ipaddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
-                    Console.WriteLine("Local IP: " + ipaddress.ToString());
+                    //Console.WriteLine("== Local IP: " + ipaddress.ToString());
                     IPL[a] = ipaddress.ToString();
                     a++;
                 }

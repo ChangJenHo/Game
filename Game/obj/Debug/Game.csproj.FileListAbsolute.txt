@@ -5,9 +5,7 @@ C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.d
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.pdb
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.SocketServer.resources
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.csproj.GenerateResource.Cache
-C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.RTBE.resources
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Properties.Resources.resources
-C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.SocketClient.resources
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\bin\Debug\Game.dll
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\bin\Debug\Game.pdb
@@ -22,10 +20,22 @@ C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Game\obj\Debug\Game.p
 C:\GitLab\Game\Game\bin\Debug\Game.dll
 C:\GitLab\Game\Game\bin\Debug\Game.pdb
 C:\GitLab\Game\Game\obj\Debug\Game.Properties.Resources.resources
-C:\GitLab\Game\Game\obj\Debug\Game.RTBE.resources
 C:\GitLab\Game\Game\obj\Debug\Game.SocketClient.resources
 C:\GitLab\Game\Game\obj\Debug\Game.SocketServer.resources
 C:\GitLab\Game\Game\obj\Debug\Game.csproj.GenerateResource.Cache
 C:\GitLab\Game\Game\obj\Debug\Game.dll
 C:\GitLab\Game\Game\obj\Debug\Game.pdb
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.AnalogClock.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.VistaCPUInfo.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.RTBE.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.NetInterfacePerfMonitor.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.SystemControl.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Game\obj\Debug\Game.Controller.PowerStatusShow.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.AnalogClock.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.NetInterfacePerfMonitor.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.PowerStatusShow.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.SystemControl.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.VistaCPUInfo.resources
+C:\GitLab\Game\Game\obj\Debug\Game.Controller.RTBE.resources
 C:\GitLab\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache

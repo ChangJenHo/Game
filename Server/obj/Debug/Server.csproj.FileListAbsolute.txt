@@ -1,7 +1,6 @@
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\bin\Debug\Server.exe.config
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\bin\Debug\Server.exe
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\bin\Debug\Server.pdb
-C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\obj\Debug\Server.Properties.Resources.resources
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\obj\Debug\Server.csproj.GenerateResource.Cache
 C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
@@ -26,3 +25,5 @@ C:\GitLab\Game\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\GitLab\Game\Server\obj\Debug\Server.MainForm.resources
 C:\GitLab\Game\Server\obj\Debug\Server.Properties.Resources.resources
 C:\GitLab\Game\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\bin\Debug\System.Net.Http.dll
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

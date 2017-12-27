@@ -59,7 +59,7 @@ namespace Game.Network
         /// <summary>
         /// 保存所有客戶端會話的哈希表
         /// </summary>
-        private Hashtable _sessionTable;
+        private Hashtable _sessionTable;        
         /// <summary>
         /// 當前的連接的客戶端數
         /// </summary>

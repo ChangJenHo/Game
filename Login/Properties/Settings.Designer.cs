@@ -23,7 +23,7 @@ namespace Login.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("data source=zlabdb.database.windows.net;initial catalog=ZLabSDB;persist security " +
             "info=True;user id=ZLabDBAdmin;password=JN3_$fGR&5dQ")]
@@ -31,36 +31,27 @@ namespace Login.Properties {
             get {
                 return ((string)(this["ZLabSDBEntities"]));
             }
-            set {
-                this["ZLabSDBEntities"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("9091")]
         public string ServerPort {
             get {
                 return ((string)(this["ServerPort"]));
             }
-            set {
-                this["ServerPort"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoRun {
             get {
                 return ((bool)(this["AutoRun"]));
             }
-            set {
-                this["AutoRun"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=211.72.174.44;Initial Catalog=ZLabSDB;Persist Security Info=True;User" +
             " ID=sdb;Password=sdbzlab")]
@@ -68,24 +59,18 @@ namespace Login.Properties {
             get {
                 return ((string)(this["ZLabSDBTestEntities"]));
             }
-            set {
-                this["ZLabSDBTestEntities"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SDB backup password")]
         public string subject {
             get {
                 return ((string)(this["subject"]));
             }
-            set {
-                this["subject"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\"Please use the spare password to log in within 24 hours,\\nPlease change your pas" +
             "sword after login\\nAlternate password: [{0}]\\n")]
@@ -93,80 +78,59 @@ namespace Login.Properties {
             get {
                 return ((string)(this["body"]));
             }
-            set {
-                this["body"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool DebugShow {
             get {
                 return ((bool)(this["DebugShow"]));
             }
-            set {
-                this["DebugShow"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SmartDartBoard@gmail.com")]
         public string EmailFrom {
             get {
                 return ((string)(this["EmailFrom"]));
             }
-            set {
-                this["EmailFrom"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("sdbzlabdev")]
         public string Emailpassword {
             get {
                 return ((string)(this["Emailpassword"]));
             }
-            set {
-                this["Emailpassword"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("smtp.gmail.com")]
         public string smtpAddress {
             get {
                 return ((string)(this["smtpAddress"]));
             }
-            set {
-                this["smtpAddress"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("587")]
         public int portNumber {
             get {
                 return ((int)(this["portNumber"]));
             }
-            set {
-                this["portNumber"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool enableSSL {
             get {
                 return ((bool)(this["enableSSL"]));
-            }
-            set {
-                this["enableSSL"] = value;
             }
         }
     }

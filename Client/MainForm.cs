@@ -137,8 +137,8 @@ namespace Client
         {
             string ReturnCode = String.Empty;
             string ReturnCodeB = String.Empty;
-            //string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
-            string info = string.Format("recv data:from:{0}.", e.Client);
+            string info = string.Format("recv data:{0} from:{1}.", e.Client.Datagram, e.Client);
+            //string info = string.Format("recv data:from:{0}.", e.Client);
             //Console.WriteLine(info);
             //Console.Write(">");
             rtbe1.SetText(info, true);
@@ -153,10 +153,10 @@ namespace Client
                     for (int i = 0; i < count; i++)
                     {
                         ReturnCode = friendsData["rs"].ToString();     // night or tom
-                        ReturnCodeB = friendsData["photo"].ToString();
+                        //ReturnCodeB = friendsData["photo"].ToString();
                     }
-                    byte[] AA = Game.Network.Coder.HexToBytes(ReturnCodeB);
-                    AddImage((Image)Game.Network.Coder.byteArrayToImage(AA));
+                    //byte[] AA = Game.Network.Coder.HexToBytes(ReturnCodeB);
+                    //AddImage((Image)Game.Network.Coder.byteArrayToImage(AA));
                     break;
                 case "S2C_Login":
                     ReturnCodeB = friendsData["Photo"].ToString();

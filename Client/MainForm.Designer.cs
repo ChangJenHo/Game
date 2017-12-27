@@ -31,17 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.splitContainerEx1 = new Game.Controller.SplitContainerEx();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.SendData = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
+            this.rtbe1 = new Game.Controller.RTBE();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.IPNo = new System.Windows.Forms.ToolStripTextBox();
             this.PortNo = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
-            this.rtbe1 = new Game.RTBE();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.systemControl1 = new Game.Controller.SystemControl();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerEx1)).BeginInit();
+            this.splitContainerEx1.Panel1.SuspendLayout();
+            this.splitContainerEx1.Panel2.SuspendLayout();
+            this.splitContainerEx1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -54,7 +60,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1234, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -63,6 +69,31 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(16, 17);
             this.toolStripStatusLabel1.Text = "...";
+            // 
+            // splitContainerEx1
+            // 
+            this.splitContainerEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerEx1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.splitContainerEx1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerEx1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerEx1.Name = "splitContainerEx1";
+            this.splitContainerEx1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerEx1.Panel1
+            // 
+            this.splitContainerEx1.Panel1.Controls.Add(this.toolStripContainer1);
+            this.splitContainerEx1.Panel1MinSize = 0;
+            // 
+            // splitContainerEx1.Panel2
+            // 
+            this.splitContainerEx1.Panel2.Controls.Add(this.systemControl1);
+            this.splitContainerEx1.Panel2MinSize = 0;
+            this.splitContainerEx1.Size = new System.Drawing.Size(1234, 536);
+            this.splitContainerEx1.SplitterDistance = 377;
+            this.splitContainerEx1.SplitterWidth = 9;
+            this.splitContainerEx1.TabIndex = 4;
             // 
             // toolStripContainer1
             // 
@@ -75,11 +106,11 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.SendData);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonSend);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.rtbe1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(782, 482);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1234, 322);
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(782, 537);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1234, 377);
             this.toolStripContainer1.TabIndex = 3;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -94,7 +125,7 @@
             this.SendData.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.SendData.Location = new System.Drawing.Point(0, 3);
             this.SendData.Name = "SendData";
-            this.SendData.Size = new System.Drawing.Size(689, 26);
+            this.SendData.Size = new System.Drawing.Size(1141, 26);
             this.SendData.TabIndex = 2;
             this.SendData.Text = resources.GetString("SendData.Text");
             // 
@@ -103,13 +134,25 @@
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonSend.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonSend.Location = new System.Drawing.Point(695, 1);
+            this.buttonSend.Location = new System.Drawing.Point(1147, 1);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(87, 30);
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Send Data";
             this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.toolStripButtonSend_Click);
+            // 
+            // rtbe1
+            // 
+            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbe1.FontName = "新細明體";
+            this.rtbe1.Location = new System.Drawing.Point(0, 32);
+            this.rtbe1.Margin = new System.Windows.Forms.Padding(0);
+            this.rtbe1.Name = "rtbe1";
+            this.rtbe1.Size = new System.Drawing.Size(1234, 290);
+            this.rtbe1.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -124,7 +167,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(693, 55);
+            this.toolStrip1.Size = new System.Drawing.Size(662, 55);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripButton1
@@ -167,18 +210,6 @@
             this.toolStripButtonStart.Text = "Start Connect";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
             // 
-            // rtbe1
-            // 
-            this.rtbe1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbe1.FontName = "新細明體";
-            this.rtbe1.Location = new System.Drawing.Point(0, 32);
-            this.rtbe1.Margin = new System.Windows.Forms.Padding(0);
-            this.rtbe1.Name = "rtbe1";
-            this.rtbe1.Size = new System.Drawing.Size(782, 450);
-            this.rtbe1.TabIndex = 0;
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -187,19 +218,36 @@
             this.toolStripButton2.Size = new System.Drawing.Size(101, 52);
             this.toolStripButton2.Text = "                              ";
             // 
+            // systemControl1
+            // 
+            this.systemControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.systemControl1.BackColor = System.Drawing.Color.White;
+            this.systemControl1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.systemControl1.Location = new System.Drawing.Point(0, 0);
+            this.systemControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.systemControl1.Name = "systemControl1";
+            this.systemControl1.Size = new System.Drawing.Size(1234, 150);
+            this.systemControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1234, 561);
+            this.Controls.Add(this.splitContainerEx1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.splitContainerEx1.Panel1.ResumeLayout(false);
+            this.splitContainerEx1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerEx1)).EndInit();
+            this.splitContainerEx1.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -218,7 +266,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private Game.RTBE rtbe1;
+        private Game.Controller.RTBE rtbe1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox IPNo;
         private System.Windows.Forms.ToolStripTextBox PortNo;
@@ -227,6 +275,8 @@
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private Game.Controller.SplitContainerEx splitContainerEx1;
+        private Game.Controller.SystemControl systemControl1;
     }
 }
 

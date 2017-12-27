@@ -37,7 +37,7 @@
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSend = new System.Windows.Forms.ToolStripButton();
             this.SendData = new System.Windows.Forms.ToolStripTextBox();
-            this.rtbe1 = new Game.RTBE();
+            this.rtbe1 = new Game.Controller.RTBE();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -195,7 +195,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonStart;
         private System.Windows.Forms.ToolStripButton toolStripButtonSend;
         private System.Windows.Forms.ToolStripTextBox SendData;
-        private RTBE rtbe1;
+        private Game.Controller.RTBE rtbe1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

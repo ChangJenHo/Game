@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Game</RootNamespace>
     <AssemblyName>Game</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,29 +32,73 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AustinHarris.JsonRpc, Version=1.1.70.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AustinHarris.JsonRpc.1.1.70\lib\net40\AustinHarris.JsonRpc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootAutomaticallyExecuteTheProgram.cs" />
+    <Compile Include="CompressImage.cs" />
+    <Compile Include="Controller\AnalogClock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\AnalogClock.designer.cs">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\CpuRamUsage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\CpuRamUsage.Designer.cs">
+      <DependentUpon>CpuRamUsage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\NetInterfacePerfMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\NetInterfacePerfMonitor.designer.cs">
+      <DependentUpon>NetInterfacePerfMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\PowerStatusShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\PowerStatusShow.Designer.cs">
+      <DependentUpon>PowerStatusShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\PrintPreviewDialogEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\SplitContainerAdv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\SystemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\SystemControl.Designer.cs">
+      <DependentUpon>SystemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\VistaCPUInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controller\VistaCPUInfo.designer.cs">
+      <DependentUpon>VistaCPUInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\MsSql.cs" />
     <Compile Include="Network\Coder.cs" />
     <Compile Include="Network\DatagramResolver.cs" />
@@ -63,8 +110,48 @@
     <Compile Include="Network\JSON\MiniJSON.cs" />
     <Compile Include="Network\JSON\Parser.cs" />
     <Compile Include="Network\JSON\Writer.cs" />
+    <Compile Include="Network\NAT\AddPortMappingResponseMessage.cs" />
+    <Compile Include="Network\NAT\CreatePortMappingMessage.cs" />
+    <Compile Include="Network\NAT\DeletePortMappingMessage.cs" />
+    <Compile Include="Network\NAT\DeletePortMappingResponseMessage.cs" />
+    <Compile Include="Network\NAT\DeviceEventArgs.cs" />
+    <Compile Include="Network\NAT\DiscoverDeviceMessage.cs" />
+    <Compile Include="Network\NAT\DiscoveryResponseMessage.cs" />
+    <Compile Include="Network\NAT\Extensions.cs" />
+    <Compile Include="Network\NAT\Finalizer.cs" />
+    <Compile Include="Network\NAT\GetExternalIPAddressMessage.cs" />
+    <Compile Include="Network\NAT\GetExternalIPAddressResponseMessage.cs" />
+    <Compile Include="Network\NAT\GetGenericPortMappingEntry.cs" />
+    <Compile Include="Network\NAT\GetGenericPortMappingEntryResponseMessage.cs" />
+    <Compile Include="Network\NAT\GetSpecificPortMappingEntryMessage.cs" />
+    <Compile Include="Network\NAT\Guard.cs" />
+    <Compile Include="Network\NAT\IIPAddressesProvider.cs" />
+    <Compile Include="Network\NAT\IPAddressesProvider.cs" />
+    <Compile Include="Network\NAT\ISearcher.cs" />
+    <Compile Include="Network\NAT\Mapping.cs" />
+    <Compile Include="Network\NAT\MappingException.cs" />
+    <Compile Include="Network\NAT\NatDevice.cs" />
+    <Compile Include="Network\NAT\NatDeviceNotFoundException.cs" />
+    <Compile Include="Network\NAT\NatDiscoverer.cs" />
+    <Compile Include="Network\NAT\PmpConstants.cs" />
+    <Compile Include="Network\NAT\PmpNatDevice.cs" />
+    <Compile Include="Network\NAT\PmpSearcher.cs" />
+    <Compile Include="Network\NAT\PortMapper.cs" />
+    <Compile Include="Network\NAT\ProtocolType.cs" />
+    <Compile Include="Network\NAT\RequestMessageBase.cs" />
+    <Compile Include="Network\NAT\ResponseMessageBase.cs" />
+    <Compile Include="Network\NAT\Searcher.cs" />
+    <Compile Include="Network\NAT\SoapClient.cs" />
+    <Compile Include="Network\NAT\UpnpConstants.cs" />
+    <Compile Include="Network\NAT\UpnpNatDevice.cs" />
+    <Compile Include="Network\NAT\UpnpNatDeviceInfo.cs" />
+    <Compile Include="Network\NAT\UpnpSearcher.cs" />
+    <Compile Include="Network\NAT\WellKnownConstants.cs" />
     <Compile Include="Network\NetEventArgs.cs" />
     <Compile Include="Network\RookieIPCountryFinder.cs" />
+    <Compile Include="Network\Turn\Enums.cs" />
+    <Compile Include="Network\Turn\ILogger.cs" />
+    <Compile Include="Network\Turn\NullLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Network\Session.cs" />
     <Compile Include="Network\SessionId.cs" />
@@ -75,12 +162,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RTBE.cs">
+    <Compile Include="Controller\RTBE.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RTBE.designer.cs">
+    <Compile Include="Controller\RTBE.designer.cs">
       <DependentUpon>RTBE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Registry.cs" />
     <Compile Include="SocketClient.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,16 +181,31 @@
     <Compile Include="SocketServer.Designer.cs">
       <DependentUpon>SocketServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplitContainerEx.cs">
+    <Compile Include="Controller\SplitContainerEx.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controller\AnalogClock.resx">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\NetInterfacePerfMonitor.resx">
+      <DependentUpon>NetInterfacePerfMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\PowerStatusShow.resx">
+      <DependentUpon>PowerStatusShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\SystemControl.resx">
+      <DependentUpon>SystemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\VistaCPUInfo.resx">
+      <DependentUpon>VistaCPUInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RTBE.resx">
+    <EmbeddedResource Include="Controller\RTBE.resx">
       <DependentUpon>RTBE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SocketClient.resx">
@@ -113,12 +216,119 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="app.manifest" />
     <None Include="Resources\Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Red.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\AnalogClock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_cool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_cool_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_cool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_cool_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_cool_lrg_sml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_cool_sml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_lrg_sml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_sml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialdot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialdot_cool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialdot_cool_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialdot_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_cool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_cool_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_lrg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Powe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0GZPGw5S3c.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_7d39a81b163eb37caf0ab04abd926f69_con.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\256x256bb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Del.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anigif_sub-buzz-9941-1496073500-10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\battery-for-dribbble.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\下載.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2016122142819.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_8255fe921c35454d2fdeb67fa5497825_con.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %282%29.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

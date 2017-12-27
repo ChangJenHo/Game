@@ -17,3 +17,16 @@ C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Stream\obj\Debug\Stre
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Stream\obj\Debug\Stream.csproj.GenerateResource.Cache
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Stream\obj\Debug\Stream.exe
 C:\Users\joseph\Documents\Visual Studio 2015\Projects\Game\Stream\obj\Debug\Stream.pdb
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Stream\bin\Debug\Game.dll
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Stream\bin\Debug\Game.pdb
+C:\GitLab\Game\Stream\bin\Debug\Stream.exe.config
+C:\GitLab\Game\Stream\bin\Debug\Stream.exe
+C:\GitLab\Game\Stream\bin\Debug\Stream.pdb
+C:\GitLab\Game\Stream\obj\Debug\Stream.csprojResolveAssemblyReference.cache
+C:\GitLab\Game\Stream\obj\Debug\Stream.MainForm.resources
+C:\GitLab\Game\Stream\obj\Debug\Stream.Properties.Resources.resources
+C:\GitLab\Game\Stream\obj\Debug\Stream.csproj.GenerateResource.Cache
+C:\GitLab\Game\Stream\obj\Debug\Stream.exe
+C:\GitLab\Game\Stream\obj\Debug\Stream.pdb
+C:\GitLab\Game\Stream\bin\Debug\Game.dll
+C:\GitLab\Game\Stream\bin\Debug\Game.pdb

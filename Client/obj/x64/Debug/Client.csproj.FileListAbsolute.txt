@@ -1,0 +1,12 @@
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\bin\x64\Debug\Client.exe.config
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\bin\x64\Debug\Client.exe
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\bin\x64\Debug\Client.pdb
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\bin\x64\Debug\Game.dll
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\bin\x64\Debug\Game.pdb
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.MainForm.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.Properties.Resources.resources
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.exe
+C:\Users\joseph\Documents\Visual Studio 2017\Projects\Game\Client\obj\x64\Debug\Client.pdb

@@ -24,7 +24,7 @@ namespace Game.DataBase
                 ConnectionString = ConnectionStrings;
                 MsSqlConnection = new SqlConnection(ConnectionString);
                 MsSqlConnection.Open();
-                ErrorCode = "00000000";
+                ErrorCode = "0";
             }
             catch (Exception ex)
             {
@@ -152,7 +152,7 @@ namespace Game.DataBase
                 Command.Dispose();
                 if (VarPool.Count == 0)
                 {
-                    ErrorCode = "00000010";
+                    ErrorCode = "1";
                     return false;
                 }
                 else
@@ -174,15 +174,15 @@ namespace Game.DataBase
                 SqlDataAdapter sqldataadapterX = new SqlDataAdapter(Command);
                 if (sqldataadapterX.UpdateCommand.ExecuteNonQuery() > 0)
                 {
-                    ErrorCode = "00000000";
+                    ErrorCode = "0";
                 }
                 else
                 {
-                    ErrorCode = "00000011";
+                    ErrorCode = "11";
                 }
                 sqldataadapterX.Dispose();
                 Command.Dispose();
-                if (ErrorCode.CompareTo("00000011")==0)
+                if (ErrorCode.CompareTo("11")==0)
                 {
                     return false;
                 }
@@ -307,7 +307,7 @@ namespace Game.DataBase
                 Connection.Dispose();
                 if(VarPool.Count == 0)
                 {
-                    ErrorCode = "00000010";
+                    ErrorCode = "10";
                     return false;
                 }else {
                     return true;
